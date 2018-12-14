@@ -7,12 +7,71 @@
  */
 
 
+var calculatorModule = function(){
+    //private variables
+    var memory = 0;
+    var total = 0;
+    var calculator = {
+        load: function(x){
+            if(typeof x !== 'number'){
+                throw error;
+            }
+            total = x;
+            return total;
+            
+        },
+        getTotal: function(){
+            return total;
+        },
+        add: function(x){
+            if(typeof x !== 'number'){
+                throw error;
+            }total += x;
+            return total
+             
+        },
+        subtract: function(x){ 
+            if(typeof x !== 'number'){
+            throw error;
+            }
+            total -= x;
+            return total;
+        },
+        multiply: function(x){
+            if(typeof x !== 'number'){
+                throw error;
+            }
+            total*= x;
+            return total;
+        },
+        divide: function(x){
+            if(typeof x !== 'number'){
+                throw error;
+            } else if (x === 0){
+                return 0;
+            }
+            total /= x;
+            return total;
+        },
+        recallMemory: function(){
+            return memory;
+        },
+        saveMemory: function(){
+            memory = total;
+        },
+        clearMemory: function(){
+            memory = 0;
+        }
+    }
+    return calculator;
+
+}
+
   /**
    * sets the `total` to the number passed in
    * @param  { Number } x
    * @return { Number }    current total
    */
-
 
   /**
    * Return the value of `total`
